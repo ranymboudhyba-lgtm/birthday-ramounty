@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday My Bestie 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #ffe0f0 0%, #ffc8e4 40%, #ffadd8 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .confetti-wrap {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; z-index: 0;
+    }
+    .confetti {
+      position: absolute; border-radius: 50%;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0%   { transform: translateY(-20px) rotate(0deg);   opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+    .page {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 520px;
+      padding: 2rem 1.5rem 3rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 1.5rem;
+    }
+
+    .header { text-align: center; }
+    .subtitle {
+      font-size: 1rem; color: #c2547a;
+      font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .title {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.8rem; color: #d63670;
+      text-shadow: 2px 3px 0 #ff9ece, 4px 6px 0 rgba(214,54,112,0.2);
+      line-height: 1.1;
+    }
+    .to-name {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem; color: #e8509a;
+      display: block; margin-top: 0.3rem;
+    }
+
+    .cake-wrap {
+      background: rgba(255,255,255,0.45);
+      border-radius: 24px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 8px 32px rgba(214,54,112,0.15);
+      width: 100%;
+      display: flex; justify-content: center;
+    }
+
+    .msg-card {
+      background: rgba(255,255,255,0.6);
+      border-radius: 20px; padding: 1.5rem;
+      text-align: center;
+      border: 2px dashed #f0a0c8; width: 100%;
+    }
+    .msg-card p { font-size: 1.05rem; color: #ad3368; line-height: 1.7; }
+    .msg-card .heart { font-size: 1.4rem; display: block; margin-top: 0.6rem; }
+
+    .wishes {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.75rem; width: 100%;
+    }
+    .wish {
+      background: rgba(255,255,255,0.55);
+      border-radius: 16px; padding: 1rem 0.75rem;
+      text-align: center; font-size: 0.9rem;
+      color: #b83374; font-weight: 600;
+      border: 1.5px solid rgba(240,160,200,0.5);
+    }
+    .wish .icon { font-size: 1.6rem; display: block; margin-bottom: 0.3rem; }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #f06ab3 0%, #d63670 100%);
+      color: white; font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem; font-weight: 700;
+      border: none; border-radius: 50px;
+      padding: 0.85rem 2.2rem; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(214,54,112,0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
+      letter-spacing: 0.03em;
+    }
+    .btn:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 24px rgba(214,54,112,0.4); }
+    .btn:active { transform: scale(0.97); }
+
+    .flame  { animation: flicker 0.80s ease-in-out         infinite alternate; transform-origin: bottom center; }
+    .flame2 { animation: flicker 0.65s ease-in-out 0.10s   infinite alternate; transform-origin: bottom center; }
+    .flame3 { animation: flicker 0.90s ease-in-out 0.20s   infinite alternate; transform-origin: bottom center; }
+    @keyframes flicker {
+      0%   { transform: scaleY(1)    scaleX(1);   opacity: 1;    }
+      100% { transform: scaleY(0.85) scaleX(1.1); opacity: 0.88; }
+    }
+
+    .sparkle  { animation: sparkle 1.5s ease-in-out         infinite; }
+    .sparkle2 { animation: sparkle 1.8s ease-in-out 0.40s   infinite; }
+    .sparkle3 { animation: sparkle 1.3s ease-in-out 0.90s   infinite; }
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      50%       { opacity: 1; transform: scale(1);   }
+    }
+
+    footer { color: #c2547a; font-size: 0.85rem; text-align: center; margin-top: 0.5rem; opacity: 0.8; }
+  </style>
+</head>
+<body>
+
+<div class="confetti-wrap" id="confetti"></div>
+
+<div class="page">
+
+  <div class="header">
+    <div class="subtitle">✨ Joyeux Anniversaire ✨</div>
+    <div class="title">
+      Happy Birthday
+      <span class="to-name">Ramounty 💕</span>
+    </div>
+  </div>
+
+  <div class="cake-wrap">
+    <svg viewBox="0 0 320 270" width="300" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="160" cy="248" rx="120" ry="12" fill="#f9c0d8" opacity="0.6"/>
+      <rect x="55" y="175" width="210" height="70" rx="8" fill="#f77dbf"/>
+      <rect x="55" y="175" width="210" height="14" rx="0" fill="#f9a0cc"/>
+      <ellipse cx="160" cy="175" rx="108" ry="10" fill="#fde2f0"/>
+      <circle cx="90"  cy="205" r="5" fill="#fff" opacity="0.7"/>
+      <circle cx="130" cy="218" r="4" fill="#fff" opacity="0.6"/>
+      <circle cx="200" cy="200" r="5" fill="#fff" opacity="0.7"/>
+      <circle cx="240" cy="212" r="4" fill="#fff" opacity="0.6"/>
+      <circle cx="160" cy="222" r="5" fill="#fff" opacity="0.5"/>
+
+      <rect x="80" y="110" width="160" height="68" rx="8" fill="#fa91c7"/>
+      <rect x="80" y="110" width="160" height="14" rx="0" fill="#fdb7de"/>
+      <ellipse cx="160" cy="110" rx="83" ry="9" fill="#fde8f4"/>
+      <circle cx="110" cy="140" r="4" fill="#fff" opacity="0.7"/>
+      <circle cx="160" cy="152" r="5" fill="#fff" opacity="0.6"/>
+      <circle cx="210" cy="138" r="4" fill="#fff" opacity="0.7"/>
+
+      <rect x="105" y="55" width="110" height="58" rx="8" fill="#fc9fd0"/>
+      <ellipse cx="160" cy="55" rx="57" ry="8" fill="#feecf5"/>
+      <circle cx="140" cy="80" r="3.5" fill="#fff" opacity="0.7"/>
+      <circle cx="175" cy="90" r="3"   fill="#fff" opacity="0.6"/>
+
+      <text x="75"  y="200" font-size="12" fill="#fff" opacity="0.8">★</text>
+      <text x="235" y="220" font-size="10" fill="#fff" opacity="0.7">★</text>
+      <text x="100" y="155" font-size="10" fill="#fff" opacity="0.7">★</text>
+      <text x="215" y="145" font-size="9"  fill="#fff" opacity="0.6">★</text>
+
+      <rect x="128" y="26" width="10" height="30" rx="3" fill="#f06ab3"/>
+      <ellipse cx="133" cy="57" rx="5.5" ry="3.5" fill="#fcd0e8"/>
+      <g class="flame">
+        <ellipse cx="133" cy="18" rx="5"   ry="9"   fill="#FFD700" opacity="0.9"/>
+        <ellipse cx="133" cy="21" rx="3"   ry="6"   fill="#FF6B00" opacity="0.8"/>
+      </g>
+
+      <rect x="155" y="20" width="10" height="36" rx="3" fill="#e8509a"/>
+      <ellipse cx="160" cy="57" rx="5.5" ry="3.5" fill="#fcd0e8"/>
+      <g class="flame2">
+        <ellipse cx="160" cy="11" rx="5.5" ry="10"  fill="#FFD700" opacity="0.95"/>
+        <ellipse cx="160" cy="15" rx="3.2" ry="6.5" fill="#FF8C00" opacity="0.85"/>
+      </g>
+
+      <rect x="182" y="26" width="10" height="30" rx="3" fill="#f590c6"/>
+      <ellipse cx="187" cy="57" rx="5.5" ry="3.5" fill="#fcd0e8"/>
+      <g class="flame3">
+        <ellipse cx="187" cy="18" rx="5"   ry="9"   fill="#FFE033" opacity="0.9"/>
+        <ellipse cx="187" cy="22" rx="3"   ry="6"   fill="#FF7300" opacity="0.8"/>
+      </g>
+
+      <g class="sparkle" ><text x="58"  y="45" font-size="16" fill="#FFD700">✦</text></g>
+      <g class="sparkle2"><text x="245" y="38" font-size="13" fill="#FFD700">✦</text></g>
+      <g class="sparkle3"><text x="145" y="8"  font-size="11" fill="#FFB6C1">✦</text></g>
+    </svg>
+  </div>
+
+  <div class="msg-card">
+    <p>Nhbk brsha ramounty nshlh kl aam wnty haya bkhyr 🌸🎀</p>
+
+  </div>
+
+
+
+  <button class="btn" onclick="celebrate()">🎉 Cliquer!</button>
+
+
+</div>
+
+<script>
+  function makeConfetti() {
+    const wrap = document.getElementById('confetti');
+    const colors = ['#f06ab3','#ffd6ec','#d63670','#ffadd8','#fff0f7','#f9a0cc','#FFD700','#ff85c0'];
+    for (let i = 0; i < 45; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.cssText = `
+        left:${Math.random()*100}%;
+        top:${Math.random()*-20}px;
+        background:${colors[Math.floor(Math.random()*colors.length)]};
+        width:${6+Math.random()*8}px;
+        height:${6+Math.random()*8}px;
+        border-radius:${Math.random()>.5?'50%':'2px'};
+        animation-duration:${3+Math.random()*4}s;
+        animation-delay:${Math.random()*5}s;
+      `;
+      wrap.appendChild(c);
+    }
+  }
+
+  function celebrate() {
+    const wrap = document.getElementById('confetti');
+    wrap.innerHTML = '';
+    const colors = ['#f06ab3','#ffd6ec','#d63670','#ffadd8','#fff0f7','#f9a0cc','#FFD700','#e8509a','#ff85c0','#ffffff'];
+    for (let i = 0; i < 80; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.cssText = `
+        left:${Math.random()*100}%;
+        top:-10px;
+        background:${colors[Math.floor(Math.random()*colors.length)]};
+        width:${6+Math.random()*10}px;
+        height:${6+Math.random()*10}px;
+        border-radius:${Math.random()>.5?'50%':'2px'};
+        animation-duration:${2+Math.random()*3}s;
+        animation-delay:${Math.random()*.5}s;
+      `;
+      wrap.appendChild(c);
+      setTimeout(() => c.remove(), 6000);
+    }
+  }
+
+  makeConfetti();
+</script>
+</body>
+</html>
